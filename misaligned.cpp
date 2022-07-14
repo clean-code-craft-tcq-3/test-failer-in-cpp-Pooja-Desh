@@ -6,8 +6,8 @@ struct
         int colorPairID;
         char* majorColorName;
         char* minorColorName;
-    }colorPair;
-colorPair[25] ={};
+    }colorPairList;
+colorPairList colorPair[25] ={};
 
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
