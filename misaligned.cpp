@@ -1,12 +1,12 @@
 #include <iostream>
 #include <assert.h>
 
-struct
+struct colorPairList
     {
         int colorPairID;
         char* majorColorName;
         char* minorColorName;
-    }colorPairList;
+    };
 colorPairList colorPair[25] ={};
 
 int printColorMap() {
