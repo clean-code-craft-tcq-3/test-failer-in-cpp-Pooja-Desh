@@ -40,9 +40,9 @@ int printColorMap(std::vector<std::string> colorMap)
     std::vector<std::string> generatedColorMap = generateColorPairMap(colorMap);
     for(int i = 0; i < maxNumberofColorPairs; i++) 
     {
-        cout<<(i+1)<<" | "<< generatedColorMap[i]<<"\n";
+        std::cout<<(i+1)<<" | "<< generatedColorMap[i]<<"\n";
     }
-    return i;
+    return(i);
 }
 
 int main() 
