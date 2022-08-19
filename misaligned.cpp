@@ -18,7 +18,7 @@ int printCounterStub = 0;
 std::string getColorPair(int majorColorNumber,int minorColorNumber)
 {
     std::string colorPairString = "";
-    return colorPairString.append(majorColor[majorColorNumber]).append("|").append(minorColor[majorColorNumber]);
+    return colorPairString.append(majorColor[minorColorNumber]).append("|").append(minorColor[majorColorNumber]);
 }
 
 std::vector<std::string> generateColorPairMap(std::vector<std::string> colorMap)
