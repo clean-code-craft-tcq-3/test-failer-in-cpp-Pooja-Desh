@@ -53,7 +53,7 @@ int main()
     assert(result == 25);
     std::cout << "All is well (maybe!)\n";
     
-    assert(testColorMap(1) == "WHITE | BLUE"); 
-    assert(testColorMap(2) == "WHITE | ORANGE"); 
+    assert(testColorMap[1] == "WHITE | BLUE"); 
+    assert(testColorMap[2] == "WHITE | ORANGE"); 
     return 0;
 }
