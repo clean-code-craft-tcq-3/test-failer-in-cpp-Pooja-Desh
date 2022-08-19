@@ -55,8 +55,8 @@ void numberOfFailures()
 int main() 
 {
     celciusAlert("Test", 500);
-    celciusAlert("Test", 500);
-    celciusAlert("Production", 500);
+    celciusAlert("Test", 404);
+    celciusAlert("Production", 401);
     numberOfFailures();
     return 0;
 }
