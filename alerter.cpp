@@ -1,32 +1,62 @@
 #include <iostream>
 #include <assert.h>
+using namespace std;
 
 int alertFailureCount = 0;
 
-int networkAlertStub(float celcius) {
-    std::cout << "ALERT: Temperature is " << celcius << " celcius.\n";
-    // Return 200 for ok
-    // Return 500 for not-ok
-    // stub always succeeds and returns 200
-    return 200;
+float conversionFarenehitToCelcius(float temperatureInFarenehit)
+{
+    float temperatureInCelcius;
+    temperatureInCelcius = (temperatureInFarenehit - 32) * 5 / 9;
+    return(temperatureInCelcius);
 }
 
-void alertInCelcius(float farenheit) {
-    float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlertStub(celcius);
-    if (returnCode != 200) {
-        // non-ok response is not an error! Issues happen in life!
-        // let us keep a count of failures to report
-        // However, this code doesn't count failures!
-        // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 0;
+int ProductionAlertStub(float celcius)
+{
+    cout << "ALERT: Temperature is " << celcius << " celcius.\n";
+    // Threshold needs to be defined for production environment, currently returning SUCCESS in all cases.
+    return 200;
+}
+int NetworkAlertStub(float celcius)
+{
+    cout << "ALERT: Temperature is " << celcius << " celcius.\n";
+    if (celcius > 200.0)
+    {
+        return 500;
+    }
+    else
+    {
+        return 200;
     }
 }
 
-int main() {
-    alertInCelcius(400.5);
-    alertInCelcius(303.6);
-    std::cout << alertFailureCount << " alerts failed.\n";
-    std::cout << "All is well (maybe!)\n";
+void celciusAlert(const char* environment, float temperatureInFarenehit)
+{
+    int returnCode;
+    string typeOfEnvironment = environment;
+    float temperatureIncelcius = conversionFarenehitToCelcius(temperatureInFarenehit);
+
+    if (typeOfEnvironment == "Production")
+        returnCode = ProductionAlertStub(temperatureIncelcius);
+    else if (typeOfEnvironment == "Test")
+        returnCode = NetworkAlertStub(temperatureIncelcius);
+    if (returnCode == 500)
+    {
+        alertFailureCount += 1;
+    }
+}
+
+void numberOfFailures()
+{
+    assert(alertFailureCount == 1);
+    cout << alertFailureCount << " alerts failed.\n";
+}
+
+int main() 
+{
+    celciusAlert("Test", 500);
+    celciusAlert("Test", 404);
+    celciusAlert("Production", 401);
+    numberOfFailures();
     return 0;
 }
