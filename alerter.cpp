@@ -2,6 +2,8 @@
 #include <assert.h>
 using namespace std;
 
+int alertFailureCount = 0;
+
 float conversionFarenehitToCelcius(float temperatureInFarenehit)
 {
     float temperatureInCelcius;
