@@ -12,7 +12,7 @@ int lengthOflongestMajorColor = 0;
 int formatCounterStub = 0;
 int printCounterStub = 0;
 
-std::vector<std::string> colorMap[maxNumberofColorPairs] = {""};
+//std::vector<std::string> colorMap[maxNumberofColorPairs] = {""};
 
 std::string getColorPair(int majorColorNumber,int minorColorNumber)
 {
