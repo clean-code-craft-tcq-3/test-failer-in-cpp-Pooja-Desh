@@ -37,8 +37,9 @@ std::vector<std::string> generateColorPairMap(std::vector<std::string> colorMap)
 
 int printColorMap(std::vector<std::string> colorMap)
 {   
+    int i;
     std::vector<std::string> generatedColorMap = generateColorPairMap(colorMap);
-    for(int i = 0; i < maxNumberofColorPairs; i++) 
+    for(i = 0; i < maxNumberofColorPairs; i++) 
     {
         std::cout<<(i+1)<<" | "<< generatedColorMap[i]<<"\n";
     }
